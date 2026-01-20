@@ -146,7 +146,7 @@ class _ConvData:
 
         # Compute convolution
         self._compute_convolution(moment_names=self.component.source_moments,
-                                  moment_exponents=self.component.source_exponents,
+                                  moment_exponents=self.component._source_moment_exponents,
                                   moments_data=moments_data)
         # Apply kicks
         interpolated_result = particles.zeta * 0
