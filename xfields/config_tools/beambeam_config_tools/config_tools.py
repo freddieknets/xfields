@@ -736,7 +736,6 @@ def measure_crabbing(line, bb_df, reverse):
             if reverse:
                 zeta0 = -zeta0 # LHC convention
             tw4d_crab = line.twiss(method='4d',zeta0=zeta0,
-                                   freeze_longitudinal=True,
                                    reverse=False) # Ignore twiss_default for reverse
             if reverse:
                 tw4d_crab = tw4d_crab.reverse()
