@@ -578,7 +578,7 @@ class IBSKineticKick(IBSKick):
         beta0: float = self._twiss.beta0
         gamma0: float = self._twiss.gamma0
         radius: float = self._twiss.particle_on_co.get_classical_particle_radius0()
-        circumference: float = self._twiss.circumference
+        circumference: float = self._twiss.line_length
         betx = self._twiss.betx
         bety = self._twiss.bety
         dx = self._twiss.dx
