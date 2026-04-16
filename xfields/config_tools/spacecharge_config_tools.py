@@ -125,7 +125,7 @@ def install_spacecharge_frozen(line=None, _buffer=None,
                                            exclude_types_starting_with='SpaceCh')
 
     line_sc_off.build_tracker()
-    tw_at_sc = line_sc_off.twiss(particle_ref=particle_ref, at_elements=sc_names, method='4d')
+    tw_at_sc = line_sc_off.twiss4d(particle_ref=particle_ref).rows[sc_names]
 
     # Configure lenses
     for ii, sc in enumerate(sc_elements):
