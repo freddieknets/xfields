@@ -3,6 +3,7 @@ import xpart as xp
 import xtrack as xt
 from cpymad.madx import Madx
 from ibs_conftest import XTRACK_TEST_DATA, get_ref_particle_from_madx_beam
+import numpy as np
 from numpy.testing import assert_allclose
 from xobjects.test_helpers import fix_random_seed, for_all_test_contexts
 
@@ -235,7 +236,7 @@ def test_track_analytical_kick(test_context):
     # Activate cavities, configure IBS and generate particles
     cavities = [element for element in line.elements if isinstance(element, xt.Cavity)]
     for cavity in cavities:
-        cavity.lag = 180
+        cavity.phase = np.pi
     line.configure_intrabeam_scattering(element=ibskick, name="ibskick", at=line.get_length(), update_every=100)
     tw = line.twiss(method="4d")
     particles = xp.generate_matched_gaussian_bunch(
@@ -285,7 +286,7 @@ def test_track_kinetic_kick(test_context):
     # Activate cavities, configure IBS and generate particles
     cavities = [element for element in line.elements if isinstance(element, xt.Cavity)]
     for cavity in cavities:
-        cavity.lag = 180
+        cavity.phase = np.pi
     line.configure_intrabeam_scattering(element=ibskick, name="ibskick", at=line.get_length(), update_every=100)
     tw = line.twiss(method="4d")
     particles = xp.generate_matched_gaussian_bunch(
