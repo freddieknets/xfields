@@ -17,7 +17,7 @@ from xfields.ibs._formulary import _bunch_length, _gemitt_x, _gemitt_y, _sigma_d
 line = xt.load("../../../xtrack/test_data/clic_dr/line.json")
 cavities = [element for element in line.elements if isinstance(element, xt.Cavity)]
 for cavity in cavities:
-    cavity.lag = 180
+    cavity.phase = np.pi
 tw = line.twiss(method="4d")
 
 #######################################
