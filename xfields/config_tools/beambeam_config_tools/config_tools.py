@@ -159,8 +159,9 @@ def install_dummy_bb_lenses(bb_df, line):
     ip_names = bb_df['ip_name'].unique().tolist()
 
     s_ips = {}
+    tt = line.get_table()
     for iipp in ip_names:
-        s_ips[iipp] = line.get_s_position(iipp)
+        s_ips[iipp] = tt['s', iipp]
 
     s_insertions = []
     for nn in bb_df.index:

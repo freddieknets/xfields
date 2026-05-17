@@ -114,7 +114,8 @@ def install_spacecharge_frozen(line=None, _buffer=None,
     # Insert spacecharge elements
     line._insert_thin_elements_at_s(insertions)
 
-    actual_s_spch = line.get_s_position(sc_names)
+    tt = line.get_table()
+    actual_s_spch = np.array([tt['s', nn] for nn in sc_names])
 
     sc_lengths = 0*s_spacecharge
     sc_lengths[:-1] = np.diff(actual_s_spch)
